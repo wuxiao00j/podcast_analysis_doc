@@ -1,0 +1,34 @@
+﻿你可以把下面这段话原样发给另一个 agent：
+
+---
+请使用 `podcast_analysis_doc` skill 处理这个播客链接。
+
+要求：
+1. 先读：
+   - `SKILL.md`
+   - `docs/workflow.md`
+   - `docs/link_handling.md`
+   - `docs/browser_capture.md`
+   - `docs/docx_export.md`
+   - `docs/other_agent_quickstart.md`
+2. 先判断链接页属于：
+   - `transcript_like`
+   - `show_notes_like`
+   - `summary_like`
+3. 如果普通抓取拿不到足够正文，但页面可能需要点击展开、滚动加载或登录，请切到浏览器增强抓取
+4. 如果信息足够：
+   - 先生成 Markdown 导读
+   - 再导出 `.docx`
+5. 如果信息不足：
+   - 明确告诉我缺什么
+   - 不要硬写完整章节导读
+   - 可以先给轻量版导读
+6. 风格参考：
+   - `examples/chunqiu_airlines_example.md`
+
+硬约束：
+- 不得编造时间戳
+- 不得把节目简介当完整 transcript
+- 不得跳过 Markdown 中间稿直接宣称 docx 已完成
+- 必须说明当前导读基于 transcript、show notes 还是简介页
+---

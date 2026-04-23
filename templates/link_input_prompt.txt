@@ -1,0 +1,33 @@
+﻿你现在要处理的是“用户只给了一个播客链接，并希望产出导读文档或导读 docx”的任务。
+
+请严格按这个顺序执行：
+
+1. 先进入 `podcast_analysis_doc`
+2. 先读：
+   - `docs/workflow.md`
+   - `docs/link_handling.md`
+   - `docs/docx_export.md`
+3. 先判断这个链接页到底是什么级别：
+   - `transcript_like`
+   - `show_notes_like`
+   - `summary_like`
+4. 没判断清楚前，不要直接写完整章节导读
+5. 如果页面信息足够：
+   - 先生成 Markdown 导读
+   - 再导出 `.docx`
+6. 如果页面信息不够：
+   - 明确缺口
+   - 最多做轻量版摘要
+   - 或向用户补要 transcript / 字幕 / 文本稿
+
+固定要求：
+
+- 不得编造时间戳
+- 不得把节目简介当完整 transcript
+- 不得跳过 Markdown 中间稿直接宣称 docx 已完成
+- 必须说明当前导读基于 transcript、show notes 还是简介页
+
+如果本地可执行，优先使用：
+
+- `scripts/fetch_podcast_page.py`
+- `scripts/export_docx.py`

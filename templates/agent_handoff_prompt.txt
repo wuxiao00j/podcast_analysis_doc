@@ -1,34 +1,44 @@
 ﻿你可以把下面这段话原样发给另一个 agent：
 
 ---
-请使用 `podcast_analysis_doc` skill 处理这个播客链接。
+请使用 `podcast_analysis_doc` skill 处理这个播客任务。
 
 要求：
 1. 先读：
    - `SKILL.md`
    - `docs/workflow.md`
+   - `docs/source_handling.md`
    - `docs/link_handling.md`
    - `docs/browser_capture.md`
    - `docs/docx_export.md`
    - `docs/other_agent_quickstart.md`
-2. 先判断链接页属于：
-   - `transcript_like`
-   - `show_notes_like`
-   - `summary_like`
-3. 如果普通抓取拿不到足够正文，但页面可能需要点击展开、滚动加载或登录，请切到浏览器增强抓取
-4. 如果信息足够：
+2. 先判断你手上的主材料是什么：
+   - 转录稿 / 字幕
+   - 音频文件
+   - 页面 transcript
+   - show notes
+   - summary / 简介页
+3. 正文优先级必须遵守：
+   - 转录稿 / 字幕 / 音频转写结果
+   - 音频文件转录后的正文
+   - 页面 transcript
+   - show notes
+   - 页面简介
+4. 如果用户给了音频或转录稿，不要跳过这些主材料、直接根据页面信息写导读
+5. 如果普通抓取拿不到足够正文，但页面可能需要点击展开、滚动加载或登录，请切到浏览器增强抓取
+6. 如果信息足够：
    - 先生成 Markdown 导读
    - 再导出 `.docx`
-5. 如果信息不足：
+7. 如果信息不足：
    - 明确告诉我缺什么
    - 不要硬写完整章节导读
    - 可以先给轻量版导读
-6. 风格参考：
+8. 风格参考：
    - `examples/chunqiu_airlines_example.md`
 
 硬约束：
 - 不得编造时间戳
 - 不得把节目简介当完整 transcript
 - 不得跳过 Markdown 中间稿直接宣称 docx 已完成
-- 必须说明当前导读基于 transcript、show notes 还是简介页
+- 必须说明当前导读基于 transcript、show notes、简介页，还是音频转录稿
 ---
